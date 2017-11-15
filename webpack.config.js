@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
     context: __dirname,
     entry: "./src/index.js",
@@ -16,5 +18,9 @@ module.exports = {
               options: { presets: ['es2015'] }
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.AggressiveMergingPlugin(),
+    ]
 }
